@@ -1,10 +1,12 @@
 ﻿namespace PesquisaBináriaComNomes
 {
 
+     //ATENÇÃO, JÁ EXISTE UMA FUNÇÃO PRONTA de pesquisa binária em C# ( com NÚMEROS ), mas esse exemplo é a pesquisa binária com nomes 
     internal class Program
     {
         static void Main(string[] args)
         {
+            // lista com nomes 
             string[] nomes =  {"Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace", "Henry", "Ivy", "Jack",
     "Kelly", "Liam", "Mia", "Noah", "Olivia", "Peter", "Quinn", "Ryan", "Sophia", "Thomas",
     "Uma", "Victor", "Willow", "Xavier", "Yara", "Zachary", "Abigail", "Benjamin", "Chloe", "Daniel",
@@ -31,10 +33,13 @@
 
          static int BuscaBinária(string alvo, string[] lista)
         {
+             
             int baixo, alto, meio, tentativas = 0, posicao = 0;
             bool NumFound = false;
             baixo = 0;
             alto = lista.Length - 1;
+
+            //faz a busca dentro do array até encontrar o número ou o array ser totalmente percorrido
             while ( (baixo <= alto) && NumFound == false )
             {
                 meio = (baixo + alto) / 2;
@@ -61,15 +66,18 @@
                     NumFound = true;
                     posicao = meio;
                 }
+                // conta as tentativas necessárias pra encontrar o número
                 tentativas += 1;
 
             }
 
+             // se o número não estiver  
             if ( NumFound == false )
             {
                 return -1;
             }
 
+            // se o número estiver na lista, retonra a sua posicao
             else
             {
                 return posicao;
